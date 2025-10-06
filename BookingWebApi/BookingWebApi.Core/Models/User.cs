@@ -1,4 +1,6 @@
-﻿namespace BookingWebApi.BookingWebApi.Core.Models
+﻿using BookingWebApi.BookingWebApi.Dto.ModelsDto;
+
+namespace BookingWebApi.BookingWebApi.Core.Models
 {
     public class User
     {
@@ -14,13 +16,29 @@
         public int PhoneNumber { get; set; }
         public string Nationality { get; set; } = null!;
         public DateTime BirthDate { get; set; }
-        public string Sex { get; set; } = null!;
+        public string Gender { get; set; } = null!;
         
-        public List<User> Friends { get; set; } = new List<User>();
-        public List<Booking> History { get; set; } = new List<Booking>();
-        public List<Object> Saved { get; set; } = new List<Object>();
+        public List<string> HistoryBookingsId { get; set; } = new List<string>();
+        public List<string> SavedPropertysId { get; set; } = new List<string>();
+        public List<string> MyProperties { get; set; } = new List<string>();
 
+        public User ToUser(UserDto user)
+        {
+            var res = new User
+            {
+                DisplayName = user.DisplayName,
+                PhoneNumber = user.PhoneNumber,
+                Photo = user.Photo,
+                Email = user.Email,
+                Role = user.Role,
+                Nationality = user.Nationality,
+                BirthDate = user.BirthDate,
+                Gender = user.Gender,
+                HistoryBookingsId = user.HistoryBookingsId,
+                SavedPropertysId = user.SavedPropertysId
+            };
 
-        //public ICollection<Booking> Bookings { get; set; } = new List<Booking>();
+            return res;
+        }
     }
 }

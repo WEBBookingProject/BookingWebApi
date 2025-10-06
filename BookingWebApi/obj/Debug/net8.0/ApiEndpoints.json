@@ -1,0 +1,198 @@
+[
+  {
+    "ContainingType": "BookingWebApi.Controllers.BookingController",
+    "Method": "CreateNewBooking",
+    "RelativePath": "api/booking/CreateNewBooking",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "propertyId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "totalPrice",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "startDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "endDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "clientId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingWebApi.Controllers.BookingController",
+    "Method": "GetBookingsForUserOrClientIdAsync",
+    "RelativePath": "api/booking/GetBookingsForUserOrClientId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "clientId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingWebApi.Controllers.ClientController",
+    "Method": "AddClientAsync",
+    "RelativePath": "api/client/AddClient",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fullName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "phoneNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingWebApi.Controllers.PropertyController",
+    "Method": "GetTop10ForRatingAsync",
+    "RelativePath": "api/properties/GetTop10ForRating",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingWebApi.Controllers.PropertyController",
+    "Method": "SearchProperties",
+    "RelativePath": "api/properties/SearchProperties",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "minPrice",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "maxPrice",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "parkingPlaces",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "apartamentSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "rating",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "category",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "kitchen",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "wifi",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "freeWifi",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingWebApi.Controllers.ReviewController",
+    "Method": "Get3LastPositiveAsync",
+    "RelativePath": "api/review",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "propertyId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingWebApi.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BookingWebApi.WeatherForecast, BookingWebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]
