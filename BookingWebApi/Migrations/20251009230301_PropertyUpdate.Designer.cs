@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using BookingWebApi.BookingWebApi.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BookingWebApi.Migrations
 {
     [DbContext(typeof(BookingWebApiDbContext))]
-    partial class BookingWebApiDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251009230301_PropertyUpdate")]
+    partial class PropertyUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

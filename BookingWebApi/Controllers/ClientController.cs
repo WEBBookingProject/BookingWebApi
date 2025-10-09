@@ -8,10 +8,10 @@ namespace BookingWebApi.Controllers
     [Route("api/client")]
     public class ClientController : Controller
     {
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<ClientController> _logger;
         private readonly ClientService _clientService;
 
-        public ClientController(ILogger<WeatherForecastController> logger,
+        public ClientController(ILogger<ClientController> logger,
             ClientService clientService)
         {
             _logger = logger;

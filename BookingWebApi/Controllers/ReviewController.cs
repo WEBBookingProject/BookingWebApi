@@ -7,20 +7,20 @@ namespace BookingWebApi.Controllers
     [Route("api/review")]
     public class ReviewController : Controller
     {
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<ReviewController> _logger;
         private readonly ReviewService _reviewService;
 
-        public ReviewController(ILogger<WeatherForecastController> logger,
+        public ReviewController(ILogger<ReviewController> logger,
             ReviewService reviewService)
         {
             _logger = logger;
             _reviewService = reviewService;
         }
 
-        [HttpGet]
+        [HttpGet("Get3LastPositiveAsync")]
         public async Task<IActionResult> Get3LastPositiveAsync(string propertyId)
         {
-            var res = await _reviewService.Get3LastPositive(propertyId);
+            var res = await _reviewService.Get3LastPositiveForProperty(propertyId);
 
             return Ok(res);
         }

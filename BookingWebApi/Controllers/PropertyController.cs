@@ -8,10 +8,10 @@ namespace BookingWebApi.Controllers
     [Route("api/properties")]
     public class PropertyController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<PropertyController> _logger;
         private readonly PropertyService _propertyService;
 
-        public PropertyController(ILogger<WeatherForecastController> logger,
+        public PropertyController(ILogger<PropertyController> logger,
             PropertyService propertyService)
         {
             _logger = logger;
@@ -21,7 +21,15 @@ namespace BookingWebApi.Controllers
         [HttpGet("GetTop10ForRating")]
         public async Task<IActionResult> GetTop10ForRatingAsync()
         {
-            var res = await _propertyService.GetTop10ForRating();
+            var res = await _propertyService.GetTop10ByRating();
+
+            return Ok(res);
+        }
+
+        [HttpGet("GetById")]
+        public async Task<IActionResult> GetById(string id)
+        {
+            var res = await _propertyService.GetById(id);
 
             return Ok(res);
         }

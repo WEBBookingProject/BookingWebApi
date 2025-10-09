@@ -16,6 +16,13 @@ namespace BookingWebApi.BookingWebApi.Services
             _repository = repository;
         }
 
+        public async Task<Property> GetById(string propertyId)
+        {
+            var res = await _repository.GetAllAsync();
+
+            return res.FirstOrDefault(p => p.Id.ToString() == propertyId);
+        }
+
         public async Task<List<Property>> SearchProperty(int minPrice = 0, int maxPrice = 0,
             int parkingPlaces = 0, int apartamentSize = 0,
             double rating = 0, string category = null, bool kitchen = false,
@@ -36,7 +43,7 @@ namespace BookingWebApi.BookingWebApi.Services
                 .ToList();
         }
 
-        public async Task<List<Property>> GetTop10ForRating()
+        public async Task<List<Property>> GetTop10ByRating()
         {
             var res = await _repository.GetAllAsync();
 

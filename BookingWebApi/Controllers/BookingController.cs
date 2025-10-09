@@ -9,10 +9,10 @@ namespace BookingWebApi.Controllers
     [Route("api/booking")]
     public class BookingController : Controller
     {
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<BookingController> _logger;
         private readonly BookingService _bookingService;
 
-        public BookingController(ILogger<WeatherForecastController> logger,
+        public BookingController(ILogger<BookingController> logger,
             BookingService bookingService)
         {
             _logger = logger;
