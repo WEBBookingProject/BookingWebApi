@@ -1,9 +1,10 @@
 ﻿using BookingWebApi.BookingWebApi.Core.Models;
 using BookingWebApi.BookingWebApi.DataAccess.Repositories;
+using BookingWebApi.BookingWebApi.Services.Interfaces;
 
 namespace BookingWebApi.BookingWebApi.Services
 {
-    public class BookingService
+    public class BookingService : IBookingService
     {
         private readonly BookingRepository _repository;
 

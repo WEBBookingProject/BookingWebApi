@@ -1,4 +1,5 @@
 ﻿using BookingWebApi.BookingWebApi.Services;
+using BookingWebApi.BookingWebApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookingWebApi.Controllers
@@ -8,10 +9,10 @@ namespace BookingWebApi.Controllers
     public class ReviewController : Controller
     {
         private readonly ILogger<ReviewController> _logger;
-        private readonly ReviewService _reviewService;
+        private readonly IReviewService _reviewService;
 
         public ReviewController(ILogger<ReviewController> logger,
-            ReviewService reviewService)
+            IReviewService reviewService)
         {
             _logger = logger;
             _reviewService = reviewService;

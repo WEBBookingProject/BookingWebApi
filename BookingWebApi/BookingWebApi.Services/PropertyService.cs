@@ -1,19 +1,21 @@
 ﻿using BookingWebApi.BookingWebApi.Core.Models;
 using BookingWebApi.BookingWebApi.DataAccess.Repositories;
-using Microsoft.Identity.Client.Extensibility;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using BookingWebApi.BookingWebApi.Services.Interfaces;
 
 namespace BookingWebApi.BookingWebApi.Services
 {
-    public class PropertyService
+    public class PropertyService : IPropertyService
     {
         private readonly PropertyRepository _repository;
 
         public PropertyService(PropertyRepository repository)
         {
             _repository = repository;
+        }
+
+        public async Task AddProperty(Property prop)
+        {
+            await _repository.AddAsync(prop);
         }
 
         public async Task<Property> GetById(string propertyId)

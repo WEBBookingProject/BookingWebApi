@@ -1,15 +1,13 @@
 ﻿using BookingWebApi.BookingWebApi.Core.Models;
 using BookingWebApi.BookingWebApi.DataAccess.Repositories;
+using BookingWebApi.BookingWebApi.Services.Interfaces;
 using BookingWebApi.BookingWebApi.Dto.ModelsDto;
 using BookingWebApi.BookingWebApi.Security.Hashers;
 using BookingWebApi.BookingWebApi.Security.JWT;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
-using System.Reflection;
 
 namespace BookingWebApi.BookingWebApi.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly UserRepository _repository;
         private readonly IPasswordHasher _passwordHasher;

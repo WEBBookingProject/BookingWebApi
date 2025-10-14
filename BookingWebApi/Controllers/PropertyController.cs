@@ -1,4 +1,6 @@
-﻿using BookingWebApi.BookingWebApi.Services;
+﻿using BookingWebApi.BookingWebApi.Core.Models;
+using BookingWebApi.BookingWebApi.Services;
+using BookingWebApi.BookingWebApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 
@@ -9,13 +11,56 @@ namespace BookingWebApi.Controllers
     public class PropertyController : ControllerBase
     {
         private readonly ILogger<PropertyController> _logger;
-        private readonly PropertyService _propertyService;
+        private readonly IPropertyService _propertyService;
 
         public PropertyController(ILogger<PropertyController> logger,
-            PropertyService propertyService)
+            IPropertyService propertyService)
         {
             _logger = logger;
             _propertyService = propertyService;
+        }
+
+        [HttpPost("CreatePropetry")]
+        public async Task<IActionResult> CreateProperty()
+        {
+            var roomDetails = new Description
+            {
+                Text = "Spacious apartment with modern amenities",
+                Type = "Apartment",
+                Location = "City Center",
+                SleepingArrangements = 2,
+                AppartamentSize = 75,
+                WiFi = true,
+                FreeWiFi = true,
+                ParkingPlaces = 1,
+                Kitchen = true
+            };
+
+            var accommodation = new Property
+            {
+                Name = "Grand Hotel",
+                Description = roomDetails,
+                PriceForDay = 250.75m,
+                MaxGuests = 4,
+                Rating = 4.7,
+                Address = "123 Ocean Boulevard, Miami, FL",
+                LatitudeCoordinate = 25.7617,
+                LongitudeCoordinate = -80.1918,
+                Category = "Luxury",
+                Photos = new List<string>
+                {
+                    "photo1.jpg",
+                    "photo2.jpg",
+                    "photo3.jpg"
+                },
+                CreatedAt = DateTime.UtcNow,
+                ContactPhone = "+1-555-0123",
+                ContactEmail = "info@grandhotel.com"
+            };
+
+            await _propertyService.AddProperty(accommodation);
+
+            return Ok();
         }
 
         [HttpGet("GetTop10ForRating")]

@@ -1,4 +1,5 @@
 ﻿using BookingWebApi.BookingWebApi.Services;
+using BookingWebApi.BookingWebApi.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +10,10 @@ namespace BookingWebApi.Controllers
     public class ClientController : Controller
     {
         private readonly ILogger<ClientController> _logger;
-        private readonly ClientService _clientService;
+        private readonly IClientService _clientService;
 
         public ClientController(ILogger<ClientController> logger,
-            ClientService clientService)
+            IClientService clientService)
         {
             _logger = logger;
             _clientService = clientService;

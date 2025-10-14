@@ -4,6 +4,7 @@ using BookingWebApi.BookingWebApi.DataAccess.Repositories.Interfaces;
 using BookingWebApi.BookingWebApi.Security.Hashers;
 using BookingWebApi.BookingWebApi.Security.JWT;
 using BookingWebApi.BookingWebApi.Services;
+using BookingWebApi.BookingWebApi.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -30,11 +31,21 @@ builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<JwtProvider>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 
-builder.Services.AddScoped<BookingService>();
-builder.Services.AddScoped<ClientService>();
-builder.Services.AddScoped<PropertyService>();
-builder.Services.AddScoped<ReviewService>();
-builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddScoped<IClientService, ClientService>();
+builder.Services.AddScoped<IPropertyService, PropertyService>();
+builder.Services.AddScoped<IReviewService, ReviewService>();
+builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 

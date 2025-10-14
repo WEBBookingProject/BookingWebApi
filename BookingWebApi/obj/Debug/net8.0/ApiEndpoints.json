@@ -94,6 +94,16 @@
   },
   {
     "ContainingType": "BookingWebApi.Controllers.PropertyController",
+    "Method": "CreateProperty",
+    "RelativePath": "api/properties/CreatePropetry",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingWebApi.Controllers.PropertyController",
     "Method": "GetById",
     "RelativePath": "api/properties/GetById",
     "HttpMethod": "GET",

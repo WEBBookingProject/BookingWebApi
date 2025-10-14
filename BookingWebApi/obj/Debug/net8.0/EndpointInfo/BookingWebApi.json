@@ -137,6 +137,18 @@
         }
       }
     },
+    "/api/properties/CreatePropetry": {
+      "post": {
+        "tags": [
+          "Property"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/properties/GetTop10ForRating": {
       "get": {
         "tags": [

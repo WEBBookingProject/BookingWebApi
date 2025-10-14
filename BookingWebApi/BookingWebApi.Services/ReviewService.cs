@@ -1,11 +1,10 @@
 ﻿using BookingWebApi.BookingWebApi.Core.Models;
 using BookingWebApi.BookingWebApi.DataAccess.Repositories;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using BookingWebApi.BookingWebApi.Services.Interfaces;
 
 namespace BookingWebApi.BookingWebApi.Services
 {
-    public class ReviewService
+    public class ReviewService : IReviewService
     {
         private readonly ReviewRepository _repository;
 
