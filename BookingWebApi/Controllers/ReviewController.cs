@@ -18,10 +18,18 @@ namespace BookingWebApi.Controllers
             _reviewService = reviewService;
         }
 
-        [HttpGet("Get3LastPositiveAsync")]
-        public async Task<IActionResult> Get3LastPositiveAsync(string propertyId)
+        [HttpGet("Get3LastPositiveByPropertyAsync")]
+        public async Task<IActionResult> Get3LastPositiveByPropertyAsync(string propertyId)
         {
-            var res = await _reviewService.Get3LastPositiveForProperty(propertyId);
+            var res = await _reviewService.Get3LastPositiveByProperty(propertyId);
+
+            return Ok(res);
+        }
+
+        [HttpGet("Get3LastPositiveAsync")]
+        public async Task<IActionResult> Get3LastPositiveAsync()
+        {
+            var res = await _reviewService.Get3LastPositive();
 
             return Ok(res);
         }

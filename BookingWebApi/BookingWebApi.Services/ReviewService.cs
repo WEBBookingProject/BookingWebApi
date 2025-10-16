@@ -13,11 +13,12 @@ namespace BookingWebApi.BookingWebApi.Services
             _repository = repository;
         }
 
-        public async Task<List<Review>> Get3LastPositiveForProperty(string propertyId)
+        public async Task<List<Review>> Get3LastPositiveByProperty(string propertyId)
         {
             var res = await _repository.GetAllAsync();
 
             return res.OrderByDescending(r => r.OverallRating)
+                .ThenBy(r => r.CreatedAt.Ticks)
                 .Where(r => r.PropertyId == propertyId)
                 .Take(3)
                 .ToList();
@@ -27,7 +28,8 @@ namespace BookingWebApi.BookingWebApi.Services
         {
             var res = await _repository.GetAllAsync();
 
-            return res.OrderBy(r => r.CreatedAt.Ticks)
+            return res.OrderByDescending(r => r.OverallRating)
+                .ThenBy(r => r.CreatedAt.Ticks)                
                 .Take(3)
                 .ToList();
         }

@@ -12,12 +12,14 @@ namespace BookingWebApi.Controllers
     {
         private readonly ILogger<BookingController> _logger;
         private readonly IBookingService _bookingService;
+        private readonly IClientService _clientService;
 
         public BookingController(ILogger<BookingController> logger,
-            IBookingService bookingService)
+            IBookingService bookingService, IClientService clientService)
         {
             _logger = logger;
             _bookingService = bookingService;
+            _clientService = clientService;
         }
 
         [HttpPost("CreateNewBooking")]
@@ -25,6 +27,11 @@ namespace BookingWebApi.Controllers
             DateTime startDate, DateTime endDate, BookingStatus status,
             string userId = "", string clientId = "")
         {
+            var isClient = _clientService.GetClientById(clientId);
+
+            if (isClient == null) 
+                return Content("Create a client or wait a bit");
+
             await _bookingService.AddBooking(propertyId, totalPrice, startDate,
                 endDate, status, userId, clientId);
 

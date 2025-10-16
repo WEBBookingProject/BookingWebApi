@@ -26,5 +26,21 @@ namespace BookingWebApi.Controllers
 
             return Ok();
         }
+
+        [HttpGet("GetClientById")]
+        public async Task<IActionResult> GetClientById(string id)
+        {
+            var res = await _clientService.GetClientById(id);
+
+            return Ok(res);
+        }
+
+        [HttpGet("GetClientByPhoneNumber")]
+        public async Task<IActionResult> GetClientByPhoneNumber(int phoneNumber)
+        {
+            var res = await _clientService.GetClientByPhoneNumber(phoneNumber);
+
+            return Ok(res);
+        }
     }
 }
