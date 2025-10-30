@@ -29,7 +29,7 @@ namespace BookingWebApi.BookingWebApi.Services
             var res = await _repository.GetAllAsync();
 
             return res.OrderByDescending(r => r.OverallRating)
-                .ThenBy(r => r.CreatedAt.Ticks)                
+                .ThenByDescending(r => r.CreatedAt.Ticks)                
                 .Take(3)
                 .ToList();
         }
