@@ -27,7 +27,7 @@ namespace BookingWebApi.Controllers
             DateTime startDate, DateTime endDate, BookingStatus status,
             string userId = "", string clientId = "")
         {
-            var isClient = _clientService.GetClientById(clientId);
+            var isClient = await _clientService.GetClientById(clientId);
 
             if (isClient == null) 
                 return Content("Create a client or wait a bit");

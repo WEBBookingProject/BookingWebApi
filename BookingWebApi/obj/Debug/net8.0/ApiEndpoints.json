@@ -93,13 +93,35 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BookingWebApi.Controllers.PropertyController",
-    "Method": "CreateProperty",
-    "RelativePath": "api/properties/CreatePropetry",
-    "HttpMethod": "POST",
+    "ContainingType": "BookingWebApi.Controllers.ClientController",
+    "Method": "GetClientById",
+    "RelativePath": "api/client/GetClientById",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingWebApi.Controllers.ClientController",
+    "Method": "GetClientByPhoneNumber",
+    "RelativePath": "api/client/GetClientByPhoneNumber",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "phoneNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -130,9 +152,30 @@
   },
   {
     "ContainingType": "BookingWebApi.Controllers.PropertyController",
+    "Method": "SearchByNameAndAddress",
+    "RelativePath": "api/properties/SearchByNameAndAddress",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "address",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingWebApi.Controllers.PropertyController",
     "Method": "SearchProperties",
     "RelativePath": "api/properties/SearchProperties",
-    "HttpMethod": "POST",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -162,6 +205,11 @@
         "IsRequired": false
       },
       {
+        "Name": "type",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "category",
         "Type": "System.String",
         "IsRequired": false
@@ -188,6 +236,16 @@
     "ContainingType": "BookingWebApi.Controllers.ReviewController",
     "Method": "Get3LastPositiveAsync",
     "RelativePath": "api/review/Get3LastPositiveAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingWebApi.Controllers.ReviewController",
+    "Method": "Get3LastPositiveByPropertyAsync",
+    "RelativePath": "api/review/Get3LastPositiveByPropertyAsync",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

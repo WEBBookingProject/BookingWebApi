@@ -13,7 +13,7 @@ namespace BookingWebApi.BookingWebApi.Services.Interfaces
             double rating = 0, string type = null, string category = null, bool kitchen = false,
             bool wifi = false, bool freeWifi = false);
 
-        Task<List<Property>> GetProperiesByNameAndAddress(string name, string address = null)
+        Task<List<Property>> GetProperiesByNameAndAddress(string name, string address = null);
 
         Task<List<Property>> GetTop10ByRating();
     }

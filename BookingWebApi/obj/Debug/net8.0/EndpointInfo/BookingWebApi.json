@@ -137,10 +137,41 @@
         }
       }
     },
-    "/api/properties/CreatePropetry": {
-      "post": {
+    "/api/client/GetClientById": {
+      "get": {
         "tags": [
-          "Property"
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/client/GetClientByPhoneNumber": {
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "phoneNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -183,7 +214,7 @@
       }
     },
     "/api/properties/SearchProperties": {
-      "post": {
+      "get": {
         "tags": [
           "Property"
         ],
@@ -234,6 +265,13 @@
             }
           },
           {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "category",
             "in": "query",
             "schema": {
@@ -272,7 +310,35 @@
         }
       }
     },
-    "/api/review/Get3LastPositiveAsync": {
+    "/api/properties/SearchByNameAndAddress": {
+      "get": {
+        "tags": [
+          "Property"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/review/Get3LastPositiveByPropertyAsync": {
       "get": {
         "tags": [
           "Review"
@@ -285,6 +351,18 @@
               "type": "string"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/review/Get3LastPositiveAsync": {
+      "get": {
+        "tags": [
+          "Review"
         ],
         "responses": {
           "200": {
